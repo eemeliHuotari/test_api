@@ -33,7 +33,6 @@ USE_X_FORWARDED_PORT = True
 ALLOWED_HOSTS = [
     'test-api-distributed-ransomware-detection-file-recovery.2.rahtiapp.fi',
     'helionmunvaimo.2.rahtiapp.fi',
-    'https://test-api-distributed-ransomware-detection-file-recovery.2.rahtiapp.fi', 
     'localhost',
     '127.0.0.1',
     'test-api',  # Service name
