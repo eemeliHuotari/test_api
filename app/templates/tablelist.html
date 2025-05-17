@@ -1,0 +1,11 @@
+{% extends "base.html" %} {% block content %}
+    <h1>Tables:</h1>
+    <hr>
+    <ul>
+        {% for table in tables %}
+            <li>
+                {{ table }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

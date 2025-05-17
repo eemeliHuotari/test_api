@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% block content %}
+    <h1>Reservations</h1>
+    <hr>
+    <ul>
+        {% for reservation in reservations %}
+            <li>
+                User: {{ reservation.user.name }} |
+                Table: {{ reservation.table.id }} |
+                People: {{ reservation.number_of_people }} |
+                Date: {{ reservation.date_and_time }} |
+                Duration: {{ reservation.duration }} hours
+            </li>
+        {% empty %}
+            <li>No reservations found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

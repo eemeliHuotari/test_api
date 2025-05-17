@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block content %}
+    <h1>Orders</h1>
+    <ul>
+        {% for order in orders %}
+            <li>
+                <strong>Order #{{ order.id }}</strong> - {{ order.status }}
+                <br> <strong>Ordered by:</strong> {{ order.user.name }}
+                <br> <strong>Items:</strong>
+                {% for item in order.all_items_list %}
+                    <ul>
+                        <li>
+                            {{ item }}
+                        </li>
+                    </ul>
+                {% endfor %}
+                <strong>Total Price:</strong> {{ order.total_price }}€
+            </li>
+            <hr>
+        {% empty %}
+            <li>No orders found.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>Menu</h1>
+    <hr>
+    {% for type, items in menu_by_type.items %}
+        <h3>{{ type|title }}</h3> <!-- Capitalizes type names -->
+        <ul>
+            {% for item in items %}
+                <li>{{ item.name }} - {{ item.price }}€ - {{ item.description }}</li>
+            {% endfor %}
+        </ul>
+    {% empty %}
+        <p>No menu items available.</p>
+    {% endfor %}
+{% endblock %}

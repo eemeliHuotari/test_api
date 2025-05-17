@@ -1,0 +1,47 @@
+{% extends "base.html" %} {% block title %} Home Page {% endblock %}
+{% block content %}
+    <h1>Welcome to the main page!</h1>
+
+    <ul>
+        <li>
+            <a href="/users/">All Users</a>
+        </li>
+        <li>
+            <a href="/users/user/1/">User by ID</a>
+        </li>
+        <li>
+            <a href="/users/user/Aki%20Ahmatti/">User by Name</a>
+        </li>
+        <li>
+            <a href="/tables/">All Tables</a>
+        </li>
+        <li>
+            <a href="/menu/">Menu</a>
+        </li>
+        <li>
+            <a href="/menu/type/main%20course/">Menu items of type</a>
+        </li>
+        <li>
+            <a href="/orders/">All Orders</a>
+        </li>
+        <li>
+            <a href="/orders/Aki%20Ahmatti/">Orders by user</a>
+        </li>
+        <li>
+            <a href="/orders/status/ready/">Orders by status</a>
+        </li>
+        <li>
+            <a href="/orders/order/2/">Order by ID</a>
+        </li>
+        <li>
+            <a href="/reservations/">All Reservations</a>
+        </li>
+        <li>
+            <a href="/reservations/Aki%20Ahmatti/">Reservations by user</a>
+        </li>
+        <li>
+            <a href="/reservations/reservation/2/">Reservations by ID</a>
+        </li>
+    </ul>
+
+{% endblock %}
