@@ -31,6 +31,7 @@ USE_X_FORWARDED_PORT = True
 
 # Required for OpenShift health checks
 ALLOWED_HOSTS = [
+    'test-api-distributed-ransomware-detection-file-recovery.2.rahtiapp.fi'
     'https://test-api-distributed-ransomware-detection-file-recovery.2.rahtiapp.fi', 
     'localhost',
     '127.0.0.1',
