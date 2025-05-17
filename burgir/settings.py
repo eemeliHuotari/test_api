@@ -31,11 +31,11 @@ USE_X_FORWARDED_PORT = True
 
 # Required for OpenShift health checks
 ALLOWED_HOSTS = [
-    'burgirs.2.rahtiapp.fi', 
+    'https://test-api-distributed-ransomware-detection-file-recovery.2.rahtiapp.fi', 
     'localhost',
     '127.0.0.1',
-    'pwp-test',  # Service name
-    'pwp-test.distributed-ransomware-detection-file-recovery.svc'  # Full service DNS
+    'test-api',  # Service name
+    'test-api.distributed-ransomware-detection-file-recovery.svc'  # Full service DNS
 ]
 
 # Disable SSL redirect since OpenShift handles TLS termination
