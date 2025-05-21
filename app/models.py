@@ -99,3 +99,12 @@ class UserIngredient(models.Model):
 
     def __str__(self):
         return f"{self.user.name} has {self.quantity} {self.ingredient.unit} of {self.ingredient.name}"
+
+class Image(models.Model):
+    file = models.ImageField(upload_to='images/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+class Audio(models.Model):
+    file = models.FileField(upload_to='audios/')
+    name = models.CharField(max_length=255)
+    uploaded_at = models.DateTimeField(auto_now_add=True)
