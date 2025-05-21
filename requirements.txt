@@ -30,3 +30,4 @@ uvicorn==0.34.0
 gunicorn==21.2.0
 whitenoise==6.6.0
 django-cors-headers==4.3.1
+pillow==11.2.1
