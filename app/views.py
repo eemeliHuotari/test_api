@@ -11,6 +11,9 @@ from rest_framework.response import Response
 from rest_framework import viewsets
 from .models import *
 from .serializers import *
+from rest_framework.views import APIView
+from rest_framework.parsers import MultiPartParser, FormParser
+from django.shortcuts import get_object_or_404
 
 
 class IngredientViewSet(viewsets.ModelViewSet):
@@ -46,3 +49,44 @@ class UserViewSet(viewsets.ModelViewSet):
 class UserIngredientViewSet(viewsets.ModelViewSet):
     queryset = UserIngredient.objects.all()
     serializer_class = UserIngredientSerializer
+
+class ImageUploadView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, format=None):
+        serializer = ImageSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+
+    def get(self, request, format=None):
+        images = Image.objects.all()
+        serializer = ImageSerializer(images, many=True)
+        return Response(serializer.data)
+
+class AudioUploadView(APIView):
+    parser_classes = (MultiPartParser, FormParser)
+
+    def post(self, request, format=None):
+        serializer = AudioSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+
+    def get(self, request, format=None):
+        audios = Audio.objects.all()
+        serializer = AudioSerializer(audios, many=True)
+        return Response(serializer.data)
+
+class AudioRenameView(APIView):
+    def put(self, request, pk, format=None):
+        audio = get_object_or_404(Audio, pk=pk)
+        new_name = request.data.get('name')
+        if new_name:
+            audio.name = new_name
+            audio.save()
+            serializer = AudioSerializer(audio)
+            return Response(serializer.data)
+        return Response({'error': 'Name not provided'}, status=400)
