@@ -102,6 +102,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': '/app/burgir/db1/db.sqlite3',
+        #'NAME': BASE_DIR / 'db.sqlite3',
         'OPTIONS': {
             'timeout': 20,  # Add this to prevent locking issues
         }
@@ -161,7 +162,7 @@ USE_I18N = True
 USE_TZ = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://burgirsclient.2.rahtiapp.fi",
+    "https://rakastanhelikuiria.2.rahtiapp.fi"
 ]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
