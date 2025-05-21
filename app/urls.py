@@ -16,5 +16,10 @@ router.register(r'user-ingredients', UserIngredientViewSet, basename='useringred
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
+    path('upload/image/', ImageUploadView.as_view(), name='upload-image'),
+    path('images/', ImageUploadView.as_view(), name='list-images'),
+    path('upload/audio/', AudioUploadView.as_view(), name='upload-audio'),
+    path('audios/', AudioUploadView.as_view(), name='list-audios'),
+    path('audio/<int:pk>/rename/', AudioRenameView.as_view(), name='rename-audio'),
     path('api-auth/', include('rest_framework.urls', namespace='rest_framework'))
 ]
