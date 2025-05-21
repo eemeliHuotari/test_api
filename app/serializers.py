@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from .models import (
     Ingredient, FoodItem, FoodItemIngredient,
-    WeeklyMealPlan, DailyMeal, User, UserIngredient
+    WeeklyMealPlan, DailyMeal, User, UserIngredient,
+    Image, Audio
 )
 
 
@@ -70,3 +71,14 @@ class UserIngredientSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserIngredient
         fields = ['id', 'user', 'ingredient', 'ingredient_id', 'quantity']
+
+
+class ImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Image
+        fields = ['id', 'file', 'uploaded_at']
+
+class AudioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Audio
+        fields = ['id', 'file', 'name', 'uploaded_at']
